@@ -27,7 +27,7 @@ public class BookFeature {
 				+ "\\Drivers\\chromedriver.exe");
 				*/
 	  System.setProperty("webdriver.chrome.driver", curDir
-				+ "/Drivers/chromedriver.exe");
+				+ "/Drivers/chromedriver");
 	driver = new ChromeDriver();
 	  
 	baseUrl = "http://192.168.17.223:8080";

@@ -25,7 +25,7 @@ public class Test_Reporte_HTML {
 
   @Test
   public void testTC003FeatureBook() throws Exception {
-	 System.setProperty("webdriver.chrome.driver", curDir + "/Drivers/chromedriver.exe");
+	 System.setProperty("webdriver.chrome.driver", curDir + "/Drivers/chromedriver");
 	driver = new ChromeDriver();
 	  
 	try{

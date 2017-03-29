@@ -38,7 +38,7 @@ public class ClonTest_reporteLib {
   @Test
   public void testTC003FeatureBook() throws Exception {
 	 System.setProperty("webdriver.chrome.driver", curDir
-				+ "\\Drivers\\chromedriver.exe");
+				+ "\\Drivers\\chromedriver");
 	driver = new ChromeDriver();
 	  
 	baseUrl = "http://192.168.17.223:8080";

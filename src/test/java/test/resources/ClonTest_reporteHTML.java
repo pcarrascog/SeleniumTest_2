@@ -27,7 +27,7 @@ public class ClonTest_reporteHTML {
 
   @Test
   public void testTC003FeatureBook() throws Exception {
-	 System.setProperty("webdriver.chrome.driver", curDir + "\\Drivers\\chromedriver.exe");
+	 System.setProperty("webdriver.chrome.driver", curDir + "\\Drivers\\chromedriver");
 	driver = new ChromeDriver();
 	  
 	try{
