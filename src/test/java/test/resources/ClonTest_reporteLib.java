@@ -11,18 +11,15 @@ import static org.junit.Assert.*;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
 
-//import test.resources.*;
 
 
 public class ClonTest_reporteLib {
   private WebDriver driver;
   private String baseUrl;
-  private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   public static String curDir = System.getProperty("user.dir");
   MetodosReutilizables mr =new MetodosReutilizables();
@@ -38,7 +35,7 @@ public class ClonTest_reporteLib {
   @Test
   public void testTC003FeatureBook() throws Exception {
 	 System.setProperty("webdriver.chrome.driver", curDir
-				+ "\\Drivers\\chromedriver");
+				+ "/Drivers/chromedriver");
 	driver = new ChromeDriver();
 	  
 	baseUrl = "http://192.168.17.223:8080";
@@ -53,7 +50,7 @@ public class ClonTest_reporteLib {
 	mr.crearCarpetaReporte(nombreCarpeta);	
 	mr.crearCarpetaDePruebas(nombreCarpeta, nombreClase);	
 	System.out.println("nombre de la clase es:" +nombreClase);	
-	logger.init(curDir + "\\"+nombreCarpeta+"\\"+nombreClase+"\\ReporteResultados.html",true);
+	logger.init(curDir + "/"+nombreCarpeta+"/"+nombreClase+"/ReporteResultados.html",true);
 	
 	mr.crearCarpetaDeEvidencias(nombreCarpeta, nombreClase);
 	
@@ -65,7 +62,7 @@ public class ClonTest_reporteLib {
 	driver.get(baseUrl + "/cargo-tracker/");
 	
 	File evidenciaPantallaInicial = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);  	
-	String pathEvidencia_pantallaInicial = curDir + "\\"+ nombreCarpeta +"\\"+ nombreClase + "\\"+ "Evidencias" + "\\1. Pantalla Inicial.png";	
+	String pathEvidencia_pantallaInicial = curDir + "/"+ nombreCarpeta +"/"+ nombreClase + "/"+ "Evidencias" + "/1.Pantalla_Inicial.png";	
 	FileUtils.copyFile(evidenciaPantallaInicial, new File(pathEvidencia_pantallaInicial));
 	logger.attachScreenshot(pathEvidencia_pantallaInicial);
 	
@@ -75,7 +72,7 @@ public class ClonTest_reporteLib {
     
     
     File evidenciaPantallaAdminInterf = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);  	
-	String pathEvidencia_AdminInterf = curDir + "\\"+ nombreCarpeta +"\\"+ nombreClase + "\\"+ "Evidencias" + "\\2. Pantalla Admin Interface.png";	
+	String pathEvidencia_AdminInterf = curDir + "/"+ nombreCarpeta +"/"+ nombreClase + "/"+ "Evidencias" + "/2.Pantalla_Admin_Interface.png";	
 	FileUtils.copyFile(evidenciaPantallaAdminInterf, new File(pathEvidencia_AdminInterf));
 	logger.attachScreenshot(pathEvidencia_AdminInterf);
 	
@@ -108,7 +105,7 @@ public class ClonTest_reporteLib {
     robot.delay(tiempoL);
     
     File evidenciaUltimaPantalla = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);  	
-	String pathEvidencia_ultimaPantalla = curDir + "\\"+ nombreCarpeta +"\\"+ nombreClase + "\\"+ "Evidencias" + "\\3. Ultima Pantalla.png";	
+	String pathEvidencia_ultimaPantalla = curDir + "/"+ nombreCarpeta +"/"+ nombreClase + "/"+ "Evidencias" + "/3.Ultima_Pantalla.png";	
 	FileUtils.copyFile(evidenciaUltimaPantalla, new File(pathEvidencia_ultimaPantalla));
 	logger.attachScreenshot(pathEvidencia_ultimaPantalla);
     
@@ -124,36 +121,4 @@ public class ClonTest_reporteLib {
     }
   }
 
-  private boolean isElementPresent(By by) {
-    try {
-      driver.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
-
-  private boolean isAlertPresent() {
-    try {
-      driver.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }
-
-  private String closeAlertAndGetItsText() {
-    try {
-      Alert alert = driver.switchTo().alert();
-      String alertText = alert.getText();
-      if (acceptNextAlert) {
-        alert.accept();
-      } else {
-        alert.dismiss();
-      }
-      return alertText;
-    } finally {
-      acceptNextAlert = true;
-    }
-  }
 }

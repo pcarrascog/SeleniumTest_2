@@ -9,12 +9,10 @@ import static org.junit.Assert.*;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class ClonTest_reporteHTML {
   private WebDriver driver;
   private String baseUrl;
-  private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   public static String curDir = System.getProperty("user.dir");
 
@@ -27,7 +25,7 @@ public class ClonTest_reporteHTML {
 
   @Test
   public void testTC003FeatureBook() throws Exception {
-	 System.setProperty("webdriver.chrome.driver", curDir + "\\Drivers\\chromedriver");
+	 System.setProperty("webdriver.chrome.driver", curDir + "/Drivers/chromedriver");
 	driver = new ChromeDriver();
 	  
 	try{
@@ -132,36 +130,4 @@ public class ClonTest_reporteHTML {
     }
   }
 
-  private boolean isElementPresent(By by) {
-    try {
-      driver.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
-
-  private boolean isAlertPresent() {
-    try {
-      driver.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }
-
-  private String closeAlertAndGetItsText() {
-    try {
-      Alert alert = driver.switchTo().alert();
-      String alertText = alert.getText();
-      if (acceptNextAlert) {
-        alert.accept();
-      } else {
-        alert.dismiss();
-      }
-      return alertText;
-    } finally {
-      acceptNextAlert = true;
-    }
-  }
 }
