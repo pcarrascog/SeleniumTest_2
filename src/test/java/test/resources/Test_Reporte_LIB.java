@@ -21,7 +21,7 @@ public class Test_Reporte_LIB {
 	private String baseUrl;
 	private StringBuffer verificationErrors = new StringBuffer();
 	public static String curDir = System.getProperty("user.dir");
-	MetodosReutilizables mr = new MetodosReutilizables();
+	//MetodosReutilizables mr = new MetodosReutilizables();
 	String nombreClase = getClass().getSimpleName();
 	DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 	String nombreCarpeta = "ReporteResultados";
@@ -49,8 +49,8 @@ public class Test_Reporte_LIB {
 		Robot robot = new Robot();
 
 		ExtentReports logger = ExtentReports.get(Test_Reporte_LIB.class);
-		mr.crearCarpetaReporte(nombreCarpeta);
-		mr.crearCarpetaDePruebas(nombreCarpeta, nombreClase);
+		//mr.crearCarpetaReporte(nombreCarpeta);
+		//mr.crearCarpetaDePruebas(nombreCarpeta, nombreClase);
 		System.out.println("nombre de la clase es:" + nombreClase);
 		/*
 		 * logger.init(curDir +
@@ -59,7 +59,7 @@ public class Test_Reporte_LIB {
 		 */
 		logger.init(curDir + "/" + nombreCarpeta + "/" + nombreClase + "/ReporteResultados.html", true);
 
-		mr.crearCarpetaDeEvidencias(nombreCarpeta, nombreClase);
+		//mr.crearCarpetaDeEvidencias(nombreCarpeta, nombreClase);
 
 		logger.startTest("TC Web Track");
 
