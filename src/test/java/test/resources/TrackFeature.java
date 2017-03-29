@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class TrackFeature {
-	private WebDriver driver;
+	private ChromeDriver driver;
 	private String baseUrl;
 	private StringBuffer verificationErrors = new StringBuffer();
 	public static String curDir = System.getProperty("user.dir");
@@ -25,6 +25,7 @@ public class TrackFeature {
 	@Test
 	public void testTC002FeatureTrack() throws Exception {
 		System.setProperty("webdriver.chrome.driver", curDir + "/Drivers/chromedriver");
+
 		driver = new ChromeDriver(capabilities);
 		driver.manage().window().maximize();
 

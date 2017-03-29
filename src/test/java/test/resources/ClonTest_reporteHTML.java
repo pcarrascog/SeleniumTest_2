@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class ClonTest_reporteHTML {
-	private WebDriver driver;
+	private ChromeDriver driver;
 	private String baseUrl;
 	private StringBuffer verificationErrors = new StringBuffer();
 	public static String curDir = System.getProperty("user.dir");

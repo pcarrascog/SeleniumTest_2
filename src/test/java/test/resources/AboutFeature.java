@@ -13,7 +13,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class AboutFeature {
   public static String curDir = System.getProperty("user.dir");
-  private WebDriver driver;
+  private ChromeDriver driver;
   private String baseUrl;
   private StringBuffer verificationErrors = new StringBuffer();
   DesiredCapabilities capabilities = DesiredCapabilities.chrome();

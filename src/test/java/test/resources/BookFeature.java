@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class BookFeature {
-	private WebDriver driver;
+	private ChromeDriver driver;
 	private String baseUrl;
 
 	DesiredCapabilities capabilities = DesiredCapabilities.chrome();
