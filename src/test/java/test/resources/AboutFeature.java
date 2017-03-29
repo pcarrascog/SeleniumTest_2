@@ -38,12 +38,12 @@ public class AboutFeature {
 
   @Test
   public void testAboutFeature() throws Exception {
-	  /*
-	System.setProperty("webdriver.chrome.driver", curDir
-				+ "\\Drivers\\chromedriver.exe");
-				*/
-	System.setProperty("webdriver.chrome.driver", curDir
-			+ "/Drivers/chromedriver");
+		/*
+		 * System.setProperty("webdriver.chrome.driver", curDir +
+		 * "\\Drivers\\chromedriver.exe");
+		 */
+		System.setProperty("webdriver.chrome.driver", curDir + "/Drivers/chromedriver");
+	
 	driver = new ChromeDriver(capabilities);
 	driver.manage().window().maximize();
 	  

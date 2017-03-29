@@ -5,12 +5,9 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ AboutFeature.class,BookFeature.class,TrackFeature.class
-	
+@SuiteClasses({ AboutFeature.class, BookFeature.class, TrackFeature.class
+
 })
 public class TestSuite {
 
 }
-
- 
-
