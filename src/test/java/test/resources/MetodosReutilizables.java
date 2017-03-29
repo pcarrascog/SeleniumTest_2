@@ -1,7 +1,6 @@
 package test.resources;
 
 import java.awt.AWTException;
-import java.awt.Desktop;
 import java.awt.HeadlessException;
 import java.awt.Rectangle;
 import java.awt.Robot;
@@ -106,10 +105,11 @@ public class MetodosReutilizables {
 		  
 		java.util.Date today2 = Calendar.getInstance().getTime();
 	    SimpleDateFormat formatter = new SimpleDateFormat("_dd_MM_yyyy_MM_dd-hh_mm_ss");
-	    String fecha_hora = formatter.format(today2);
+	    @SuppressWarnings("unused")
+		String fecha_hora = formatter.format(today2);
 	    
 	  //Directorio donde quedaran las imagenes guardadas
-	  File directory = new File(curDir+"/ReporteResultados/Ejecuci�n"+ fecha_hora_Ejecucion +"/Evidencias");
+	  File directory = new File(curDir+"/ReporteResultados/Ejecucion"+ fecha_hora_Ejecucion +"/Evidencias");
 	
 	  try {
 		  	if (!directory.exists()) {

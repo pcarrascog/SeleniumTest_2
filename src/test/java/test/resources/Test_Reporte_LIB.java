@@ -11,6 +11,7 @@ import static org.junit.Assert.*;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.LogStatus;
@@ -22,7 +23,7 @@ public class Test_Reporte_LIB {
 	public static String curDir = System.getProperty("user.dir");
 	MetodosReutilizables mr = new MetodosReutilizables();
 	String nombreClase = getClass().getSimpleName();
-
+	DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 	String nombreCarpeta = "ReporteResultados";
 
 	@Before
@@ -36,7 +37,8 @@ public class Test_Reporte_LIB {
 		 * "\\Drivers\\chromedriver.exe");
 		 */
 		System.setProperty("webdriver.chrome.driver", curDir + "/Drivers/chromedriver");
-		driver = new ChromeDriver();
+		driver = new ChromeDriver(capabilities);
+		driver.manage().window().maximize();
 
 		baseUrl = "http://192.168.17.223:8080";
 
@@ -51,7 +53,9 @@ public class Test_Reporte_LIB {
 		mr.crearCarpetaDePruebas(nombreCarpeta, nombreClase);
 		System.out.println("nombre de la clase es:" + nombreClase);
 		/*
-		logger.init(curDir + "\\" + nombreCarpeta + "\\" + nombreClase + "\\ReporteResultados.html", true);
+		 * logger.init(curDir +
+		 * "\\" + nombreCarpeta + "\\" + nombreClase + "\\ReporteResultados.html
+		 * ", true);
 		 */
 		logger.init(curDir + "/" + nombreCarpeta + "/" + nombreClase + "/ReporteResultados.html", true);
 
@@ -65,13 +69,13 @@ public class Test_Reporte_LIB {
 
 		File evidenciaPantallaInicial = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		/*
-		String pathEvidencia_pantallaInicial = curDir + "\\" + nombreCarpeta + "\\" + nombreClase + "\\" + "Evidencias"
-				+ "\\1. Pantalla Inicial.png";
-				*/
-		String pathEvidencia_pantallaInicial = curDir + "/" + nombreCarpeta + "/" + nombreClase + "/"
-				+ "Evidencias"+ "/1. Pantalla Inicial.png";
+		 * String pathEvidencia_pantallaInicial = curDir +
+		 * "\\" + nombreCarpeta + "\\" + nombreClase + "\\" + "Evidencias" +
+		 * "\\1. Pantalla Inicial.png";
+		 */
+		String pathEvidencia_pantallaInicial = curDir + "/" + nombreCarpeta + "/" + nombreClase + "/" + "Evidencias"
+				+ "/1. Pantalla Inicial.png";
 
-				
 		FileUtils.copyFile(evidenciaPantallaInicial, new File(pathEvidencia_pantallaInicial));
 		logger.attachScreenshot(pathEvidencia_pantallaInicial);
 
@@ -81,9 +85,10 @@ public class Test_Reporte_LIB {
 
 		File evidenciaPantallaAdminInterf = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		/*
-		String pathEvidencia_AdminInterf = curDir + "\\" + nombreCarpeta + "\\" + nombreClase + "\\" + "Evidencias"
-				+ "\\2. Pantalla Admin Interface.png";
-				*/
+		 * String pathEvidencia_AdminInterf = curDir +
+		 * "\\" + nombreCarpeta + "\\" + nombreClase + "\\" + "Evidencias" +
+		 * "\\2. Pantalla Admin Interface.png";
+		 */
 		String pathEvidencia_AdminInterf = curDir + "/" + nombreCarpeta + "/" + nombreClase + "/" + "Evidencias"
 				+ "/2. Pantalla Admin Interface.png";
 		FileUtils.copyFile(evidenciaPantallaAdminInterf, new File(pathEvidencia_AdminInterf));
@@ -114,10 +119,11 @@ public class Test_Reporte_LIB {
 
 		File evidenciaUltimaPantalla = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		/*
-		String pathEvidencia_ultimaPantalla = curDir + "\\" + nombreCarpeta + "\\" + nombreClase + "\\" + "Evidencias"
-				+ "\\3. Ultima Pantalla.png";
-				*/
-		
+		 * String pathEvidencia_ultimaPantalla = curDir +
+		 * "\\" + nombreCarpeta + "\\" + nombreClase + "\\" + "Evidencias" +
+		 * "\\3. Ultima Pantalla.png";
+		 */
+
 		String pathEvidencia_ultimaPantalla = curDir + "/" + nombreCarpeta + "/" + nombreClase + "/" + "Evidencias"
 				+ "/3. Ultima Pantalla.png";
 		FileUtils.copyFile(evidenciaUltimaPantalla, new File(pathEvidencia_ultimaPantalla));

@@ -9,12 +9,14 @@ import static org.junit.Assert.*;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
 public class AboutFeature {
   public static String curDir = System.getProperty("user.dir");
   private WebDriver driver;
   private String baseUrl;
   private StringBuffer verificationErrors = new StringBuffer();
-  
+  DesiredCapabilities capabilities = DesiredCapabilities.chrome();
 
   @Before
   public void setUp() throws Exception {
@@ -42,7 +44,8 @@ public class AboutFeature {
 				*/
 	System.setProperty("webdriver.chrome.driver", curDir
 			+ "/Drivers/chromedriver");
-	driver = new ChromeDriver();
+	driver = new ChromeDriver(capabilities);
+	driver.manage().window().maximize();
 	  
 	baseUrl = "http://192.168.17.223:8080";
 	driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
