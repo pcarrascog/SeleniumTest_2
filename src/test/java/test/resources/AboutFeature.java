@@ -42,9 +42,11 @@ public class AboutFeature {
 		 * System.setProperty("webdriver.chrome.driver", curDir +
 		 * "\\Drivers\\chromedriver.exe");
 		 */
-		System.setProperty("webdriver.chrome.driver", curDir + "/Drivers/chromedriver");
-	
-	driver = new ChromeDriver(capabilities);
+		// System.setProperty("webdriver.chrome.driver", curDir + "/Drivers/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "chromedriver");
+
+	driver = new ChromeDriver(capabilities);	
+
 	driver.manage().window().maximize();
 	  
 	baseUrl = "http://192.168.17.223:8080";

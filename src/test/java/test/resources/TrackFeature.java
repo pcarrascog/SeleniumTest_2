@@ -28,7 +28,8 @@ public class TrackFeature {
 		 * System.setProperty("webdriver.chrome.driver", curDir +
 		 * "\\Drivers\\chromedriver.exe");
 		 */
-		System.setProperty("webdriver.chrome.driver", curDir + "/Drivers/chromedriver");
+		// System.setProperty("webdriver.chrome.driver", curDir + "/Drivers/chromedriver");
+				System.setProperty("webdriver.chrome.driver", "chromedriver");
 
 		driver = new ChromeDriver(capabilities);
 		driver.manage().window().maximize();
