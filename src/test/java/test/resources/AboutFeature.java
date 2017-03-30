@@ -1,8 +1,6 @@
 package test.resources;
 
 import java.awt.Robot;
-import java.io.File;
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.*;
@@ -11,13 +9,11 @@ import static org.junit.Assert.*;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 public class AboutFeature {
 	public static String curDir = System.getProperty("user.dir");
-	// private ChromeDriver driver;
+	private ChromeDriver driver;
 	private String baseUrl;
 	private StringBuffer verificationErrors = new StringBuffer();
 	DesiredCapabilities capabilities = DesiredCapabilities.chrome();
@@ -45,15 +41,10 @@ public class AboutFeature {
 		 * "\\Drivers\\chromedriver.exe");
 		 */
 		System.setProperty("webdriver.chrome.driver", curDir + "/Drivers/chromedriver");
-		ChromeDriverService service = new ChromeDriverService.Builder()
-				.usingDriverExecutable(new File(curDir + "/Drivers/chromedriver")).usingAnyFreePort().build();
-		try {
-			service.start();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		capabilities.setBrowserName("chrome");
+		capabilities.setPlatform(Platform.LINUX);
 
-		RemoteWebDriver driver = new RemoteWebDriver(service.getUrl(), DesiredCapabilities.chrome());
+		driver = new ChromeDriver(capabilities);
 		driver.manage().window().maximize();
 
 		baseUrl = "http://192.168.17.223:8080";
@@ -71,12 +62,11 @@ public class AboutFeature {
 		assertEquals("This interface includes several features for Cargo Administrators:",
 				driver.findElement(By.cssSelector("h3")).getText());
 		robot.delay(tiempoL);
-		driver.quit();
 	}
 
 	@After
 	public void tearDown() throws Exception {
-		
+		driver.quit();
 		String verificationErrorString = verificationErrors.toString();
 		if (!"".equals(verificationErrorString)) {
 			fail(verificationErrorString);
